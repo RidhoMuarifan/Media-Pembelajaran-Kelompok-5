@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pembelajaran Seni Budaya Dan Prakarya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom utility untuk text-shadow */
+    .text-shadow {
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body class="relative min-h-screen flex items-center justify-center bg-fixed bg-center bg-cover" style="background-image: url('https://i.pinimg.com/originals/65/32/ce/6532ce4a25ecec84272ec44fe2121a46.gif');">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+  
+  <!-- Kontainer utama -->
+  <div class="relative z-20 p-10 bg-white bg-opacity-20 backdrop-blur-md rounded-2xl shadow-2xl max-w-lg w-full text-center">
+    <h1 class="text-4xl font-bold mb-4 text-white text-shadow">
+      Selamat Datang
+    </h1>
+    <p class="text-lg text-gray-200 mb-8">
+      Petualangan Musik Daerah Dimulai! Yuk, pelajari seni budaya, uji wawasan dengan kuis, dan rasakan keseruan bermain piano!
+    </p>
+    <div class="flex flex-col space-y-4">
+      <button onclick="location.href='piano/piano.html'" class="w-full py-3 bg-gradient-to-r from-blue-600 to-pink-500 text-white font-semibold rounded-full shadow-md transition transform hover:scale-105 hover:shadow-xl">
+        🎹 Mulai Piano
+      </button>
+      <button onclick="location.href='quiz/quiz.html'" class="w-full py-3 bg-gradient-to-r from-green-600 to-blue-500 text-white font-semibold rounded-full shadow-md transition transform hover:scale-105 hover:shadow-xl">
+        🧠 Mulai Quiz
+      </button>
+      <button onclick="location.href='materi/materi.html'" class="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-semibold rounded-full shadow-md transition transform hover:scale-105 hover:shadow-xl">
+        📖 Materi Pembelajaran
+      </button>
+      <button onclick="location.href='developer/developer.html'" class="w-full py-3 bg-gradient-to-r from-purple-600 to-red-500 text-white font-semibold rounded-full shadow-md transition transform hover:scale-105 hover:shadow-xl">
+        👨‍💻 Developer
+      </button>
+    </div>
+  </div>
+</body>
+</html>
