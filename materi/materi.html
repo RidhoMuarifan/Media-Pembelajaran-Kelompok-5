@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Materi Pembelajaran</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Konfigurasi Tailwind yang dipisahkan -->
+    <script src="tailwind-config.js"></script>
+  </head>
+    <!-- Tombol Kembali -->
+    <div class="fixed top-4 left-4 z-50">
+      <button onclick="location.href='../index.html'" class="mt-4 px-6 py-2 bg-purple-500 text-white rounded-full hover:bg-purple-700 transition">
+      ← Kembali ke Menu
+      </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      class="relative bg-gray-100 min-h-[600px] flex items-center justify-center pt-24"
+    >
+      <!-- Container untuk posisi dan ukuran -->
+      <div class="container mx-auto px-8 relative z-10">
+        <!-- Card dengan gambar dan overlay -->
+        <div
+          class="relative max-w-4xl mx-auto overflow-hidden rounded-xl shadow-lg"
+        >
+          <!-- Gambar sebagai background -->
+          <img
+            src="https://t4.ftcdn.net/jpg/01/65/79/73/240_F_165797396_PVZLF2X1omly92bf1VoZ3cZO2aDYWaAm.jpg"
+            alt="Materi Pembelajaran"
+            class="w-full h-[400px] object-cover"
+          />
+
+          <!-- Overlay untuk efek gelap -->
+          <div
+            class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40"
+          ></div>
+
+          <!-- Teks di atas gambar -->
+          <div
+            class="absolute top-0 left-0 w-full h-full flex items-center justify-center text-center p-8"
+          >
+            <div>
+              <h1 class="text-4xl font-bold text-white leading-tight">
+                SENI MUSIK
+              </h1>
+              <p class="text-gray-300 mt-2">
+                Pelajari tentang Seni musik daerah
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Card musik-->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-2 transition duration-300 p-6 text-center cursor-pointer"
+            data-target="musik"
+          >
+            <div class="flex items-center justify-center mb-4">
+              <div
+                class="bg-purple-100 text-purple-500 w-16 h-16 rounded-full flex items-center justify-center"
+              >
+                🎵
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">musik</h3>
+            <p class="text-gray-500 mb-4">
+              Seni musik daerah merupakan warisan budaya yang berkembang di
+              suatu wilayah dan mencerminkan identitas masyarakatnya.
+            </p>
+            <button
+              onclick="scrollToSection('musik')"
+              class="mt-4 px-6 py-2 bg-purple-500 text-white rounded-full hover:bg-purple-700 transition"
+            >
+              Lihat Materi seni musik daerah
+            </button>
+          </div>
+
+          <!-- Card Jenis-->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-2 transition duration-300 p-6 text-center cursor-pointer"
+            data-target="jenis"
+          >
+            <div class="flex items-center justify-center mb-4">
+              <div
+                class="bg-purple-100 text-purple-500 w-16 h-16 rounded-full flex items-center justify-center"
+              >
+                🥁🎸
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Jenis</h3>
+            <p class="text-gray-500 mb-4">
+              Setiap daerah di Indonesia memiliki musik daerah yang khas dan
+              unik. Musik ini sering kali dimainkan dengan alat musik
+              tradisional yang beragam.
+            </p>
+            <button
+              onclick="scrollToSection('Jenis')"
+              class="mt-4 px-6 py-2 bg-purple-500 text-white rounded-full hover:bg-purple-700 transition"
+            >
+              Lihat Materi Jenis
+            </button>
+          </div>
+
+          <!-- Card Piano -->
+          <div
+            class="bg-white rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-2 transition duration-300 p-6 text-center cursor-pointer"
+            data-target="Piano"
+          >
+            <div class="flex items-center justify-center mb-4">
+              <div
+                class="bg-purple-100 text-purple-500 w-16 h-16 rounded-full flex items-center justify-center"
+              >
+                🎹
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Piano</h3>
+            <p class="text-gray-500 mb-4">
+              Piano merupakan salah satu alat musik modern yang memiliki tuts
+              sebagai sumber nada.
+            </p>
+            <button
+              onclick="scrollToSection('piano')"
+              class="mt-4 px-6 py-2 bg-purple-500 text-white rounded-full hover:bg-purple-700 transition"
+            >
+              Lihat Materi Piano
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Materi Musik -->
+    <section id="musik" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          <!-- Gambar musik -->
+          <div>
+            <img
+              src="https://i.pinimg.com/474x/f4/34/cf/f434cf63cba86bc81397d698b937ed86.jpg"
+              alt="MUSIK"
+              class="w-full h-[400px] object-cover rounded-xl shadow-lg"
+            />
+          </div>
+
+          <!-- Penjelasan Materi Morula -->
+          <div class="flex flex-col justify-center">
+            <h2 class="text-purple-600 font-semibold mb-2 mt-0">MUSIK</h2>
+            <h1 class="text-3xl font-bold mb-4">PENGERTIAN</h1>
+            <p class="text-gray-600 mb-4 text-justify">
+              Seni musik daerah merupakan warisan budaya yang berkembang di
+              suatu wilayah dan mencerminkan identitas masyarakatnya. Musik ini
+              biasanya dimainkan dalam berbagai acara adat dan memiliki ciri
+              khas tersendiri.
+            </p>
+            <p class="text-gray-600 mb-6 text-justify">
+              Seni musik daerah adalah bentuk ekspresi budaya yang berkembang di
+              suatu daerah dan diwariskan dari generasi ke generasi. Musik
+              daerah mencerminkan identitas suatu masyarakat melalui melodi,
+              ritme, lirik, serta alat musik yang digunakan. Biasanya, musik
+              daerah digunakan dalam berbagai acara adat, ritual keagamaan,
+              hingga hiburan sehari-hari.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Materi JENIS -->
+    <section id="jenis" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          <!-- Gambar  -->
+          <div>
+            <img
+              src="https://i.pinimg.com/474x/2f/e2/23/2fe223e23b38935b81d272d97bdd5a30.jpg"
+              alt="JENIS"
+              class="w-full h-[400px] object-cover rounded-xl shadow-lg"
+            />
+          </div>
+
+          <!-- Penjelasan Materi Jenis-->
+          <div class="flex flex-col justify-center">
+            <h2 class="text-purple-600 font-semibold mb-2 mt-0">JENIS-JENIS</h2>
+            <h1 class="text-3xl font-bold mb-4">MUSIK DAERAH INDONESIA</h1>
+            <p class="text-gray-600 mb-4 text-justify">
+              Setiap daerah di Indonesia memiliki musik daerah yang khas dan
+              unik. Musik ini sering kali dimainkan dengan alat musik
+              tradisional yang beragam
+            </p>
+            <p class="text-gray-600 mb-6 text-justify">
+              Gamelan, yang berasal dari Jawa, Bali, dan Sunda, merupakan
+              ansambel musik tradisional yang terdiri dari gong, kenong, saron,
+              dan alat musik lainnya. Angklung dari Jawa Barat adalah alat musik
+              bambu yang dimainkan dengan cara digetarkan, menghasilkan bunyi
+              harmonis yang khas. Selain itu, Kolintang dari Sulawesi Utara
+              merupakan alat musik perkusi yang dimainkan dengan cara dipukul
+              dan sering digunakan dalam berbagai pertunjukan musik daerah. Dari
+              Nusa Tenggara Timur, terdapat Sasando, alat musik petik berbentuk
+              setengah bola dari daun lontar yang menghasilkan nada merdu.
+              Sementara itu, Tifa dari Papua dan Maluku adalah gendang
+              tradisional yang sering digunakan dalam upacara adat serta
+              pertunjukan seni sebagai alat musik ritmis utama.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Materi piano-->
+    <section id="Piano" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          <!-- Gambar piano -->
+          <div>
+            <img
+              src="https://i.pinimg.com/474x/0e/c1/81/0ec181d8242c4c6be3184e9f4d8db322.jpg"
+              alt="piano"
+              class="w-full h-[400px] object-cover rounded-xl shadow-lg"
+            />
+          </div>
+
+          <!-- Penjelasan Materi Piano -->
+          <div class="flex flex-col justify-center">
+            <h2 class="text-purple-600 font-semibold mb-2 mt-0">PIANO</h2>
+            <h1 class="text-3xl font-bold mb-4">PENGERTIAN</h1>
+            <p class="text-gray-600 mb-4 text-justify">
+              Piano merupakan salah satu alat musik modern yang memiliki tuts
+              sebagai sumber nada. Alat musik ini sering digunakan dalam
+              berbagai genre musik, termasuk sebagai alat bantu dalam
+              pembelajaran musik daerah.
+            </p>
+            <p class="text-gray-600 mb-6 text-justify">
+              Piano adalah alat musik yang memiliki tuts sebagai sumber nada.
+              Dalam konteks pembelajaran musik, piano sering digunakan sebagai
+              alat bantu untuk memahami teori musik, melatih koordinasi tangan,
+              serta mengembangkan kemampuan bermusik.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Memisahkan script ke file eksternal -->
+    <script src="materi.js"></script>
+  </body>
+</html>
