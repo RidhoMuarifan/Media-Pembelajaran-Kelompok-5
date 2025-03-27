@@ -54,6 +54,7 @@ const pointPerQuestion = 25;
 const answered = Array(quizData.length).fill(false);
 let imageZoomLevel = 1;
 
+// Element DOM
 const questionNumberEl = document.getElementById("question-number");
 const questionTextEl = document.getElementById("question-text");
 const mediaContainerEl = document.getElementById("media-container");
@@ -62,10 +63,9 @@ const scoreDisplayEl = document.getElementById("score-display");
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
 const progressEl = document.getElementById("progress");
-
-// Notifikasi
 const notificationEl = document.getElementById("notification");
 
+/* --- Fungsi Notifikasi --- */
 function showNotification(message, type = "success") {
   notificationEl.textContent = message;
   notificationEl.className = `fixed top-5 right-5 z-50 px-4 py-2 rounded shadow ${
@@ -77,13 +77,17 @@ function showNotification(message, type = "success") {
   }, 2000);
 }
 
+/* --- Fungsi Progress --- */
 function updateProgress() {
   const progressPercentage = (currentQuestion / quizData.length) * 100;
   progressEl.style.width = `${progressPercentage}%`;
 }
 
+/* --- Fungsi Load Pertanyaan --- */
 function loadQuestion() {
   updateProgress();
+
+  // Update teks pertanyaan dan score
   questionNumberEl.textContent = `Pertanyaan ${currentQuestion + 1} dari ${
     quizData.length
   }`;
@@ -93,17 +97,19 @@ function loadQuestion() {
   questionTextEl.textContent = "";
   mediaContainerEl.innerHTML = "";
   optionsEl.innerHTML = "";
+  imageZoomLevel = 1; // Reset zoom untuk soal gambar
 
-  imageZoomLevel = 1; // reset zoom untuk soal gambar
   const quiz = quizData[currentQuestion];
   questionTextEl.textContent = quiz.question;
 
-  // Tampilkan media sesuai tipe
+  // Tampilkan media sesuai tipe soal
   if (quiz.type === "audio") {
     const audioDiv = document.createElement("div");
     audioDiv.classList.add("audio-player", "mb-4");
     audioDiv.innerHTML = `
-      <button id="audio-btn-${currentQuestion}" onclick="toggleAudio(${currentQuestion})" class="py-2 px-4 text-base rounded bg-[#1e3c72] text-white">Putar Audio</button>
+      <button id="audio-btn-${currentQuestion}" onclick="toggleAudio(${currentQuestion})" class="py-2 px-4 text-base rounded bg-[#1e3c72] text-white">
+        Putar Audio
+      </button>
       <audio id="audio-${currentQuestion}" src="${quiz.audio}" class="hidden"></audio>
     `;
     mediaContainerEl.appendChild(audioDiv);
@@ -116,7 +122,7 @@ function loadQuestion() {
     img.style.transform = `scale(${imageZoomLevel})`;
     mediaContainerEl.appendChild(img);
 
-    // Tambahkan tombol zoom
+    // Tombol zoom
     const zoomControls = document.createElement("div");
     zoomControls.classList.add("mt-2", "flex", "gap-2");
     zoomControls.innerHTML = `
@@ -136,6 +142,7 @@ function loadQuestion() {
     optionsEl.appendChild(optionDiv);
   });
 
+  // Mengatur tombol navigasi
   prevBtn.disabled = currentQuestion === 0;
   if (answered[currentQuestion]) {
     Array.from(optionsEl.children).forEach(
@@ -148,10 +155,12 @@ function loadQuestion() {
   }
 }
 
+/* --- Fungsi Seleksi Jawaban --- */
 function selectOption(optionDiv, correctAnswer) {
   if (answered[currentQuestion]) return;
   answered[currentQuestion] = true;
   const selected = optionDiv.textContent.trim();
+
   if (selected === correctAnswer) {
     score += pointPerQuestion;
     optionDiv.style.background = "#4CAF50";
@@ -172,6 +181,7 @@ function selectOption(optionDiv, correctAnswer) {
   );
 }
 
+/* --- Fungsi Navigasi --- */
 function nextQuestion() {
   if (currentQuestion < quizData.length - 1) {
     currentQuestion++;
@@ -188,7 +198,7 @@ function prevQuestion() {
   }
 }
 
-// Fungsi toggle play/pause audio
+/* --- Fungsi Kontrol Audio --- */
 function toggleAudio(index) {
   const audioEl = document.getElementById(`audio-${index}`);
   const btnEl = document.getElementById(`audio-btn-${index}`);
@@ -201,7 +211,7 @@ function toggleAudio(index) {
   }
 }
 
-// Fungsi zoom untuk gambar
+/* --- Fungsi Zoom Gambar --- */
 function zoomImage(factor) {
   imageZoomLevel *= factor;
   const img = document.getElementById("quiz-image");
@@ -210,27 +220,28 @@ function zoomImage(factor) {
   }
 }
 
-// Tampilan akhir quiz
+/* --- Tampilan Halaman Akhir Quiz --- */
 function showFinalPage() {
-  let finalScore = score;
-  if (score === quizData.length * pointPerQuestion) {
-    finalScore = 100;
-  }
+  const finalScore = score === quizData.length * pointPerQuestion ? 100 : score;
   const quizContainer = document.getElementById("quiz-container");
   quizContainer.innerHTML = `
     <div class="p-5">
       <h1 class="text-3xl font-bold text-[#1e3c72] mb-5">Selamat!</h1>
       <p class="text-xl mb-5">Quiz selesai! Nilai akhir Anda: <span class="font-bold">${finalScore}</span></p>
       <div class="flex flex-col gap-4 items-center">
-        <button onclick="location.reload()" class="py-3 px-6 bg-[#1e3c72] text-white font-bold rounded-full transition-transform duration-300 hover:scale-110">Ulangi Quiz</button>
-        <button onclick="location.href='../index.html'" class="py-3 px-6 bg-[#1e3c72] text-white font-bold rounded-full transition-transform duration-300 hover:scale-110">Kembali ke Menu Utama</button>
+        <button onclick="location.reload()" class="py-3 px-6 bg-[#1e3c72] text-white font-bold rounded-full transition-transform duration-300 hover:scale-110">
+          Ulangi Quiz
+        </button>
+        <button onclick="location.href='../index.html'" class="py-3 px-6 bg-[#1e3c72] text-white font-bold rounded-full transition-transform duration-300 hover:scale-110">
+          Kembali ke Menu Utama
+        </button>
       </div>
     </div>
   `;
   progressEl.style.width = `100%`;
 }
 
-// Navigasi keyboard: panah kiri untuk prev dan panah kanan untuk next
+/* --- Navigasi Keyboard --- */
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") {
     nextQuestion();
@@ -239,4 +250,5 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+// Inisialisasi quiz pertama
 loadQuestion();
